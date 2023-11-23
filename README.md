@@ -27,3 +27,32 @@ curl -X GET 'localhost:9200/_cluster/health?pretty
 ![1](https://github.com/BOSe1337/ELK/blob/main/1-1.JPG)
 
 
+
+### Задание 2. Kibana
+
+Установите и запустите Kibana.
+
+*Приведите скриншот интерфейса Kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty*.
+
+
+
+apt install kibana
+systemctl daemon-reload
+systemctl enable kibana.service
+systemctl start kibana.service
+
+systemctl status kibana.service
+
+
+nano /etc/kibana/kibana.yml
+
+server.port: 5601
+server.host: "0.0.0.0"
+
+systemctl restart kibana.service
+
+
+![2](https://github.com/BOSe1337/ELK/blob/main/2-2.JPG)
+
+
+
