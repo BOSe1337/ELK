@@ -47,12 +47,55 @@ systemctl status kibana.service
 nano /etc/kibana/kibana.yml
 
 server.port: 5601
-server.host: "0.0.0.0"
+server.host: "10.22.97.56"
 
 systemctl restart kibana.service
 
 
 ![2](https://github.com/BOSe1337/ELK/blob/main/2-2.JPG)
+
+
+### Задание 3. Logstash
+
+Установите и запустите Logstash и Nginx. С помощью Logstash отправьте access-лог Nginx в Elasticsearch. 
+
+*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx.*
+
+
+apt install logstash
+systemctl daemon-reload
+systemctl enable logstash.service
+systemctl start logstash.service
+
+systemctl status logstash.service
+
+Создадим простой конфиг-файл /etc/logstash/conf.d/nginx_logstash.conf, который будет передавать логи из Nginx в Elasticsearch:
+
+input {
+  file {
+    path => "/var/log/nginx/access.log"
+    type => "nginx"
+    start_position => "beginning"
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    data_stream => "true"
+  }
+}
+
+
+### Задание 4. Filebeat. 
+
+Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat. 
+
+*Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
+
+
+
+
 
 
 
