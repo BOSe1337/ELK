@@ -24,6 +24,6 @@ systemctl start elasticsearch.service
 curl -X GET 'localhost:9200/_cluster/health?pretty
 
 
-![1] (https://github.com/BOSe1337/ELK/blob/main/1-1.JPG)
+![1](https://github.com/BOSe1337/ELK/blob/main/1-1.JPG)
 
 
