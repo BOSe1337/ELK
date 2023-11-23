@@ -71,6 +71,7 @@ systemctl status logstash.service
 
 Создадим простой конфиг-файл /etc/logstash/conf.d/nginx_logstash.conf, который будет передавать логи из Nginx в Elasticsearch:
 
+
 input {
   file {
     path => "/var/log/nginx/access.log"
@@ -85,6 +86,7 @@ output {
     data_stream => "true"
   }
 }
+
 
 
 ### Задание 4. Filebeat. 
