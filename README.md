@@ -89,6 +89,7 @@ output {
     data_stream => "true"
   }
 }
+```
 
 ![3](https://github.com/BOSe1337/ELK/blob/main/3-3.jpg)
 
