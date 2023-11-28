@@ -45,12 +45,12 @@ systemctl status kibana.service
 
 
 nano /etc/kibana/kibana.yml
-
+```
 server.port: 5601
 server.host: "10.22.97.56"
 
 systemctl restart kibana.service
-
+```
 
 ![2](https://github.com/BOSe1337/ELK/blob/main/2-2.JPG)
 
