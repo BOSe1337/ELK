@@ -69,7 +69,9 @@ systemctl start logstash.service
 
 systemctl status logstash.service
 
-Создадим простой конфиг-файл /etc/logstash/conf.d/nginx_logstash.conf, который будет передавать логи из Nginx в Elasticsearch:
+nano /etc/logstash/conf.d/nginx_logstash.conf 
+
+будет передавать логи из Nginx в Elasticsearch:
 
 
 input {
@@ -87,13 +89,53 @@ output {
   }
 }
 
-
+![3](https://github.com/BOSe1337/ELK/blob/main/3-3.JPG)
 
 ### Задание 4. Filebeat. 
 
 Установите и запустите Filebeat. Переключите поставку логов Nginx с Logstash на Filebeat. 
 
 *Приведите скриншот интерфейса Kibana, на котором видны логи Nginx, которые были отправлены через Filebeat.*
+
+apt install filebeat
+systemctl daemon-reload
+systemctl enable filebeat.service
+systemctl start filebeat.service
+
+
+systemctl status filebeat.service
+
+
+![4](https://github.com/BOSe1337/ELK/blob/main/4-4.JPG)
+
+
+nano /etc/logstash/conf.d/nginx_logstash.conf
+
+input {
+  beats {
+    port => 5044
+  }
+}
+
+nano /etc/filebeat/filebeat.yml
+
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access.log
+processors:
+  - drop_fields:
+      fields: ["beat", "input_type", "prospector", "input", "host", "agent", "ecs"]
+output.logstash:
+  hosts: ["localhost:5044"]
+
+
+
+![5](https://github.com/BOSe1337/ELK/blob/main/5-5.JPG)
+
+
 
 
 
