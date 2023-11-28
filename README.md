@@ -119,12 +119,12 @@ nano /etc/filebeat/filebeat.yml
 
 
 filebeat.inputs:
-- type: log
+ type: log
   enabled: true
   paths:
     - /var/log/nginx/access.log
 processors:
-  - drop_fields:
+  drop_fields:
       fields: ["beat", "input_type", "prospector", "input", "host", "agent", "ecs"]
 output.logstash:
   hosts: ["localhost:5044"]
