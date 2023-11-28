@@ -74,6 +74,7 @@ nano /etc/logstash/conf.d/nginx_logstash.conf
 будет передавать логи из Nginx в Elasticsearch:
 
 
+```
 input {
   file {
     path => "/var/log/nginx/access.log"
