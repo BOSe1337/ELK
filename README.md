@@ -106,12 +106,10 @@ systemctl start filebeat.service
 systemctl status filebeat.service
 
 
-![4](https://github.com/BOSe1337/ELK/blob/main/4-4.JPG)
+![4](https://github.com/BOSe1337/ELK/blob/main/4-4.jpg)
 
 
-nano /etc/logstash/conf.d/nginx_logstash.conf
-
-input {
+nano /etc/logstash/conf.d/nginx_logstash.cput {
   beats {
     port => 5044
   }
@@ -133,7 +131,7 @@ output.logstash:
 
 
 
-![5](https://github.com/BOSe1337/ELK/blob/main/5-5.JPG)
+![5](https://github.com/BOSe1337/ELK/blob/main/5-5.jpg)
 
 
 
