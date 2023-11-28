@@ -117,27 +117,18 @@ nano /etc/logstash/conf.d/nginx_logstash.cput {
 
 nano /etc/filebeat/filebeat.yml
 
-
+```
 filebeat.inputs:
- 
- type: log
-  
+- type: log
   enabled: true
-  
   paths:
-    
-     /var/log/nginx/access.log
-
+    - /var/log/nginx/access.log
 processors:
-  
-  drop_fields:
-      
+  - drop_fields:
       fields: ["beat", "input_type", "prospector", "input", "host", "agent", "ecs"]
-
 output.logstash:
-  
   hosts: ["localhost:5044"]
-
+```
 
 
 ![5](https://github.com/BOSe1337/ELK/blob/main/5-5.jpg)
