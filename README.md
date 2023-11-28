@@ -89,7 +89,7 @@ output {
   }
 }
 
-![3](https://github.com/BOSe1337/ELK/blob/main/3-3.JPG)
+![3](https://github.com/BOSe1337/ELK/blob/main/3-3.jpg)
 
 ### Задание 4. Filebeat. 
 
