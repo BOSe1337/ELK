@@ -114,11 +114,13 @@ systemctl status filebeat.service
 
 
 nano /etc/logstash/conf.d/nginx_logstash.cput {
-  beats {
+
+```
+ beats {
     port => 5044
   }
 }
-
+```
 nano /etc/filebeat/filebeat.yml
 
 ```
